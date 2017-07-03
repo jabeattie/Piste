@@ -1,0 +1,6 @@
+framework module JLSwiftRouter {
+  umbrella header "JLSwiftRouter-umbrella.h"
+
+  export *
+  module * { export * }
+}

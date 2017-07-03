@@ -1,0 +1,6 @@
+framework module Pods_Piste {
+  umbrella header "Pods-Piste-umbrella.h"
+
+  export *
+  module * { export * }
+}

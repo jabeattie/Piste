@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import JLSwiftRouter
+import RealmSwift
 
 class ExerciseViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var exercises: [Exercise] = []
     
 //    var viewModel: 
 
@@ -19,8 +23,18 @@ class ExerciseViewController: UIViewController {
         
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addExercise))
         self.navigationItem.rightBarButtonItem = addButton
+        
+        tableView.dataSource = self
+        
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let realm = try! Realm()
+        exercises = realm.objects(Exercise.self).map { $0 }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +43,21 @@ class ExerciseViewController: UIViewController {
     }
     
     func addExercise() {
-        
+        let router = Router.shared
+        let vc = router.matchControllerFromStoryboard("/addExercise/new", storyboardName: "Main") as! AddExerciseViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+
+extension ExerciseViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exercises.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExerciseTableViewCell
+        cell.label.text = exercises[indexPath.row].name
+        return cell
     }
-    */
-
 }

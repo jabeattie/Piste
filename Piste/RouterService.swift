@@ -18,6 +18,7 @@ class RouterService: NSObject, UIApplicationDelegate {
         router.map("/login", controllerClass: LoginViewController.self)
         router.map("/dashboard/:userId", controllerClass: DashboardViewController.self)
         router.map("/exercises", controllerClass: ExerciseViewController.self)
+        router.map("/addExercise/:exerciseName", controllerClass: AddExerciseViewController.self)
         return true
     }
     

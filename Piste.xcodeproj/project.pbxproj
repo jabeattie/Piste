@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3ACCD48523107B18256701D0 /* Pods_PisteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7447DF78E517ACE4674A4591 /* Pods_PisteUITests.framework */; };
+		4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */; };
 		4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53541F09316A00D1D878 /* AppDelegate.swift */; };
 		4ABB53571F09316A00D1D878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53561F09316A00D1D878 /* ViewController.swift */; };
 		4ABB535A1F09316A00D1D878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABB53581F09316A00D1D878 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		03426F64AF92AF9CB477B33F /* Pods-PisteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests.release.xcconfig"; sourceTree = "<group>"; };
 		2BE2CA8E702C62A63A9D3735 /* Pods-PisteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PisteUITests/Pods-PisteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		4ABB53511F09316A00D1D878 /* Piste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABB53541F09316A00D1D878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ABB53561F09316A00D1D878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				4ABB53961F09427000D1D878 /* DashboardViewController.swift */,
 				4ABB53981F0989C800D1D878 /* TemplateViewController.swift */,
 				4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */,
+				4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */,
 				4ABB53951F093F3E00D1D878 /* RouterService.swift in Sources */,
 				4ABB53831F09398F00D1D878 /* User.swift in Sources */,
+				4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */,
 				4ABB53971F09427100D1D878 /* DashboardViewController.swift in Sources */,
 				4ABB53891F093AEA00D1D878 /* Workout.swift in Sources */,
 				4ABB538D1F093BEF00D1D878 /* TemplateWorkout.swift in Sources */,

@@ -11,8 +11,8 @@ import RealmSwift
 
 class TemplateWorkout: Object {
     let exercises = List<Exercise>()
-    dynamic var name = ""
-    dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var id = 0
     
     override static func primaryKey() -> String? {
         return "id"

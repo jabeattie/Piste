@@ -10,8 +10,8 @@ import Foundation
 import RealmSwift
 
 class Workout: Object {
-    dynamic var date = Date()
-    dynamic var name = ""
+    @objc dynamic var date = Date()
+    @objc dynamic var name = ""
     let exercises = List<WorkoutExercise>()
-    dynamic var templateWorkout: TemplateWorkout? = nil
+    @objc dynamic var templateWorkout: TemplateWorkout? = nil
 }

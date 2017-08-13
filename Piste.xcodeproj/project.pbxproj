@@ -8,7 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		3ACCD48523107B18256701D0 /* Pods_PisteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7447DF78E517ACE4674A4591 /* Pods_PisteUITests.framework */; };
+		4A0AD7931F40BE26008D437A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */; };
+		4A0AD7951F40C15A008D437A /* ExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AD7941F40C15A008D437A /* ExerciseTableViewCell.xib */; };
+		4A4D2F6C1F408A2500B21E55 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6A1F408A2500B21E55 /* WorkoutTableViewCell.swift */; };
+		4A4D2F6D1F408A2500B21E55 /* WorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6B1F408A2500B21E55 /* WorkoutTableViewCell.xib */; };
+		4A4D2F6F1F40937500B21E55 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6E1F40937500B21E55 /* WorkoutsViewModel.swift */; };
+		4A4D2F751F40952B00B21E55 /* AddTemplateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F741F40952B00B21E55 /* AddTemplateWorkoutViewController.swift */; };
+		4A4D2F771F40991700B21E55 /* AddTemplateWorkoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F761F40991600B21E55 /* AddTemplateWorkoutViewModel.swift */; };
+		4A4D2F7B1F40BCF400B21E55 /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F7A1F40BCF400B21E55 /* NibLoadableView.swift */; };
+		4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */; };
 		4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */; };
+		4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */; };
 		4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53541F09316A00D1D878 /* AppDelegate.swift */; };
 		4ABB53571F09316A00D1D878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53561F09316A00D1D878 /* ViewController.swift */; };
 		4ABB535A1F09316A00D1D878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABB53581F09316A00D1D878 /* Main.storyboard */; };
@@ -27,10 +37,11 @@
 		4ABB53971F09427100D1D878 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53961F09427000D1D878 /* DashboardViewController.swift */; };
 		4ABB53991F0989C800D1D878 /* TemplateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53981F0989C800D1D878 /* TemplateViewController.swift */; };
 		4ABB539B1F098BE600D1D878 /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB539A1F098BE600D1D878 /* ExerciseTableViewCell.swift */; };
-		4ABB539D1F098F3100D1D878 /* TemplateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB539C1F098F3100D1D878 /* TemplateViewModel.swift */; };
+		4ABB539D1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB539C1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift */; };
 		4ABB539F1F0ADAEB00D1D878 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */; };
 		4ABB53A11F0ADB6000D1D878 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */; };
 		4ABB53A41F0AE38100D1D878 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53A31F0AE38100D1D878 /* RealmService.swift */; };
+		4AFEE6B31F40874500A92BA6 /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFEE6B21F40874500A92BA6 /* WorkoutsViewController.swift */; };
 		9315D67556C06859BD8EAC3F /* Pods_Piste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6C3AEAB280E23D0418DDBC /* Pods_Piste.framework */; };
 		C52821235C53E3D619AB0CDC /* Pods_PisteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC438168CF695A5F25D1FB9F /* Pods_PisteTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +66,17 @@
 /* Begin PBXFileReference section */
 		03426F64AF92AF9CB477B33F /* Pods-PisteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests.release.xcconfig"; sourceTree = "<group>"; };
 		2BE2CA8E702C62A63A9D3735 /* Pods-PisteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PisteUITests/Pods-PisteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		4A0AD7941F40C15A008D437A /* ExerciseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		4A4D2F6A1F408A2500B21E55 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
+		4A4D2F6B1F408A2500B21E55 /* WorkoutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutTableViewCell.xib; sourceTree = "<group>"; };
+		4A4D2F6E1F40937500B21E55 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
+		4A4D2F741F40952B00B21E55 /* AddTemplateWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemplateWorkoutViewController.swift; sourceTree = "<group>"; };
+		4A4D2F761F40991600B21E55 /* AddTemplateWorkoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTemplateWorkoutViewModel.swift; sourceTree = "<group>"; };
+		4A4D2F7A1F40BCF400B21E55 /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
 		4ABB53511F09316A00D1D878 /* Piste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABB53541F09316A00D1D878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ABB53561F09316A00D1D878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +101,11 @@
 		4ABB53961F09427000D1D878 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		4ABB53981F0989C800D1D878 /* TemplateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewController.swift; sourceTree = "<group>"; };
 		4ABB539A1F098BE600D1D878 /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
-		4ABB539C1F098F3100D1D878 /* TemplateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateViewModel.swift; sourceTree = "<group>"; };
+		4ABB539C1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateWorkoutsViewModel.swift; sourceTree = "<group>"; };
 		4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		4ABB53A31F0AE38100D1D878 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		4AFEE6B21F40874500A92BA6 /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		55CDFBC2D4134E93E0FC9598 /* Pods-PisteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB6BB237C65DF25FC0B014F /* Pods-Piste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piste.release.xcconfig"; path = "Pods/Target Support Files/Pods-Piste/Pods-Piste.release.xcconfig"; sourceTree = "<group>"; };
 		5F2669F4CB0C4BE1736DEDF0 /* Pods-Piste.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piste.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Piste/Pods-Piste.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +143,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A4D2F701F40937900B21E55 /* Workouts */ = {
+			isa = PBXGroup;
+			children = (
+				4A4D2F6A1F408A2500B21E55 /* WorkoutTableViewCell.swift */,
+				4A4D2F6B1F408A2500B21E55 /* WorkoutTableViewCell.xib */,
+				4A4D2F6E1F40937500B21E55 /* WorkoutsViewModel.swift */,
+				4AFEE6B21F40874500A92BA6 /* WorkoutsViewController.swift */,
+			);
+			name = Workouts;
+			sourceTree = "<group>";
+		};
+		4A4D2F711F40939B00B21E55 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				4ABB539A1F098BE600D1D878 /* ExerciseTableViewCell.swift */,
+				4A0AD7941F40C15A008D437A /* ExerciseTableViewCell.xib */,
+				4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */,
+				4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */,
+			);
+			name = Exercises;
+			sourceTree = "<group>";
+		};
+		4A4D2F721F4093AF00B21E55 /* AddExercise */ = {
+			isa = PBXGroup;
+			children = (
+				4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */,
+				4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */,
+			);
+			name = AddExercise;
+			sourceTree = "<group>";
+		};
+		4A4D2F731F4093BE00B21E55 /* AddWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				4A4D2F741F40952B00B21E55 /* AddTemplateWorkoutViewController.swift */,
+				4A4D2F761F40991600B21E55 /* AddTemplateWorkoutViewModel.swift */,
+			);
+			name = AddWorkout;
+			sourceTree = "<group>";
+		};
+		4A4D2F781F409C2B00B21E55 /* TemplateWorkouts */ = {
+			isa = PBXGroup;
+			children = (
+				4ABB539C1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift */,
+				4ABB53981F0989C800D1D878 /* TemplateViewController.swift */,
+			);
+			name = TemplateWorkouts;
+			sourceTree = "<group>";
+		};
+		4A4D2F791F40BCE600B21E55 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4A4D2F7A1F40BCF400B21E55 /* NibLoadableView.swift */,
+				4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */,
+				4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		4ABB53481F09316A00D1D878 = {
 			isa = PBXGroup;
 			children = (
@@ -146,17 +227,22 @@
 		4ABB53531F09316A00D1D878 /* Piste */ = {
 			isa = PBXGroup;
 			children = (
+				4A4D2F791F40BCE600B21E55 /* Extension */,
+				4A4D2F781F409C2B00B21E55 /* TemplateWorkouts */,
+				4A4D2F731F4093BE00B21E55 /* AddWorkout */,
+				4A4D2F721F4093AF00B21E55 /* AddExercise */,
+				4A4D2F711F40939B00B21E55 /* Exercises */,
+				4A4D2F701F40937900B21E55 /* Workouts */,
 				4ABB53A21F0AE0D500D1D878 /* Views */,
 				4ABB53901F093E7B00D1D878 /* ViewModels */,
 				4ABB538F1F093E7500D1D878 /* ViewControllers */,
 				4ABB53931F093F1B00D1D878 /* AppDelegate+Services */,
+				4ABB538E1F093E7000D1D878 /* Model */,
 				4ABB53561F09316A00D1D878 /* ViewController.swift */,
 				4ABB53581F09316A00D1D878 /* Main.storyboard */,
 				4ABB535B1F09316A00D1D878 /* Assets.xcassets */,
 				4ABB535D1F09316A00D1D878 /* LaunchScreen.storyboard */,
 				4ABB53601F09316A00D1D878 /* Info.plist */,
-				4ABB538E1F093E7000D1D878 /* Model */,
-				4ABB539A1F098BE600D1D878 /* ExerciseTableViewCell.swift */,
 			);
 			path = Piste;
 			sourceTree = "<group>";
@@ -197,9 +283,6 @@
 			children = (
 				4ABB53911F093E9800D1D878 /* LoginViewController.swift */,
 				4ABB53961F09427000D1D878 /* DashboardViewController.swift */,
-				4ABB53981F0989C800D1D878 /* TemplateViewController.swift */,
-				4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */,
-				4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -207,8 +290,6 @@
 		4ABB53901F093E7B00D1D878 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4ABB539C1F098F3100D1D878 /* TemplateViewModel.swift */,
-				4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -325,7 +406,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "James Beattie";
 				TargetAttributes = {
 					4ABB53501F09316A00D1D878 = {
@@ -374,7 +455,9 @@
 			files = (
 				4ABB535F1F09316A00D1D878 /* LaunchScreen.storyboard in Resources */,
 				4ABB535C1F09316A00D1D878 /* Assets.xcassets in Resources */,
+				4A0AD7951F40C15A008D437A /* ExerciseTableViewCell.xib in Resources */,
 				4ABB535A1F09316A00D1D878 /* Main.storyboard in Resources */,
+				4A4D2F6D1F408A2500B21E55 /* WorkoutTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,22 +621,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ABB53921F093E9800D1D878 /* LoginViewController.swift in Sources */,
+				4A4D2F7B1F40BCF400B21E55 /* NibLoadableView.swift in Sources */,
 				4ABB53A41F0AE38100D1D878 /* RealmService.swift in Sources */,
 				4ABB539F1F0ADAEB00D1D878 /* ExerciseViewController.swift in Sources */,
 				4ABB53871F093A3800D1D878 /* ExerciseSet.swift in Sources */,
+				4A4D2F771F40991700B21E55 /* AddTemplateWorkoutViewModel.swift in Sources */,
+				4A4D2F751F40952B00B21E55 /* AddTemplateWorkoutViewController.swift in Sources */,
+				4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */,
 				4ABB53991F0989C800D1D878 /* TemplateViewController.swift in Sources */,
+				4A0AD7931F40BE26008D437A /* UITableView+Extensions.swift in Sources */,
 				4ABB53571F09316A00D1D878 /* ViewController.swift in Sources */,
 				4ABB53851F0939F800D1D878 /* Exercise.swift in Sources */,
 				4ABB53A11F0ADB6000D1D878 /* ExerciseViewModel.swift in Sources */,
+				4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */,
 				4ABB538B1F093B3900D1D878 /* WorkoutExercise.swift in Sources */,
 				4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */,
 				4ABB53951F093F3E00D1D878 /* RouterService.swift in Sources */,
+				4A4D2F6F1F40937500B21E55 /* WorkoutsViewModel.swift in Sources */,
 				4ABB53831F09398F00D1D878 /* User.swift in Sources */,
 				4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */,
 				4ABB53971F09427100D1D878 /* DashboardViewController.swift in Sources */,
 				4ABB53891F093AEA00D1D878 /* Workout.swift in Sources */,
+				4AFEE6B31F40874500A92BA6 /* WorkoutsViewController.swift in Sources */,
 				4ABB538D1F093BEF00D1D878 /* TemplateWorkout.swift in Sources */,
-				4ABB539D1F098F3100D1D878 /* TemplateViewModel.swift in Sources */,
+				4ABB539D1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift in Sources */,
+				4A4D2F6C1F408A2500B21E55 /* WorkoutTableViewCell.swift in Sources */,
 				4ABB539B1F098BE600D1D878 /* ExerciseTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -619,7 +711,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -627,7 +721,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -670,7 +768,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -678,7 +778,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

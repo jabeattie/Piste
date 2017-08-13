@@ -8,15 +8,25 @@
 
 import Foundation
 import RealmSwift
+import ReactiveSwift
+
+protocol SelectableExerciseProtocol {
+    func selectExercise(name: String)
+}
 
 struct ExerciseViewModel {
     
+    var savedSignal: Signal<Void, NSError>
+    private var savedObserver: Signal<Void, NSError>.Observer
     private var exercises: Results<Exercise>?
     
     private var realm: Realm?
     
     init() {
         realm = try? Realm()
+        
+        (savedSignal, savedObserver) = Signal<Void, NSError>.pipe()
+        
         fetchExercises()
     }
     
@@ -28,14 +38,23 @@ struct ExerciseViewModel {
         return exercises?[index].name
     }
     
-    mutating func addExercise(_ exercise: Exercise) {
-        try? realm?.write {
-            realm?.add(exercise)
+    mutating func deleteExercise(atIndex index: Int) {
+        guard let exercise = exercises?[index] else { return }
+        do {
+            realm = try Realm()
+            try realm?.write {
+                if let defaultSet = exercise.defaultSet {
+                    realm?.delete(defaultSet)
+                }
+                realm?.delete(exercise)
+            }
+        } catch let error {
+            print(error.localizedDescription)
         }
-        fetchExercises()
     }
     
     private mutating func fetchExercises() {
         exercises = realm?.objects(Exercise.self)
+        savedObserver.send(value: ())
     }
 }

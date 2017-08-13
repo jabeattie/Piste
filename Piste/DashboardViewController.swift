@@ -12,7 +12,7 @@ import JLSwiftRouter
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var userIDLabel: UILabel!
-    var userId: String?
+    @objc var userId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,12 @@ class DashboardViewController: UIViewController {
     @IBAction func exercisesTapped(_ sender: UIButton) {
         let router = Router.shared
         let vc = router.matchControllerFromStoryboard("/exercises", storyboardName: "Main") as! UIViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func workoutsTapped(_ sender: UIButton) {
+        let router = Router.shared
+        let vc = router.matchControllerFromStoryboard("/templateWorkouts", storyboardName: "Main") as! UIViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

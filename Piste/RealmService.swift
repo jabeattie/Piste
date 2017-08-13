@@ -23,20 +23,19 @@ class RealmService: NSObject, UIApplicationDelegate {
         
         let router = Router.shared
         let navC: UINavigationController
-//        navC.navigationBar = UINavigationBar()
-//        navC.navigationBar.barStyle = .default
-//        navC.navigationBar.isTranslucent = false
         do {
             
             let config = Realm.Configuration(
-                schemaVersion: 2,
+                schemaVersion: 3,
                 migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 2 {
+                    if oldSchemaVersion < 3 {
                         
                     }
             })
             
             Realm.Configuration.defaultConfiguration = config
+            
+//            print(Realm.Configuration.defaultConfiguration.fileURL!)
             
             let realm = try Realm()
             

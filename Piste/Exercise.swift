@@ -10,6 +10,10 @@ import Foundation
 import RealmSwift
 
 class Exercise: Object {
-    dynamic var name = ""
-    dynamic var defaultSet: ExerciseSet? = nil
+    @objc dynamic var name = ""
+    @objc dynamic var defaultSet: ExerciseSet? = nil
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }

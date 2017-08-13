@@ -17,8 +17,10 @@ class RouterService: NSObject, UIApplicationDelegate {
         let router = Router.shared
         router.map("/login", controllerClass: LoginViewController.self)
         router.map("/dashboard/:userId", controllerClass: DashboardViewController.self)
+        router.map("/templateWorkouts", controllerClass: TemplateWorkoutsViewController.self)
         router.map("/exercises", controllerClass: ExerciseViewController.self)
         router.map("/addExercise/:exerciseName", controllerClass: AddExerciseViewController.self)
+        router.map("/addTemplateWorkout/:templateWorkoutId", controllerClass: AddTemplateWorkoutViewController.self)
         return true
     }
     

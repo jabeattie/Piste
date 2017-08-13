@@ -10,9 +10,9 @@ import Foundation
 import RealmSwift
 
 class User: Object {
-    dynamic var id = 0
-    dynamic var name = ""
-    dynamic var age = 0
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var age = 0
     let templates = List<TemplateWorkout>()
     let workouts = List<Workout>()
 }

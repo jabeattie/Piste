@@ -10,6 +10,6 @@ import Foundation
 import RealmSwift
 
 class ExerciseSet: Object {
-    dynamic var reps = 0
-    dynamic var weight = 0.0
+    @objc dynamic var reps = 0
+    @objc dynamic var weight = 0.0
 }

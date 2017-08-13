@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import ReactiveSwift
+import ReactiveCocoa
 
 class AddExerciseViewController: UIViewController {
 
@@ -17,44 +19,51 @@ class AddExerciseViewController: UIViewController {
     
     @IBOutlet weak var weightTextField: UITextField!
     
-    var exerciseName: String?
+    @objc var exerciseName: String?
+    
+    var viewModel: AddExerciseViewModel?
+    
+    private var (lifetime, token) = Lifetime.make()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        viewModel = AddExerciseViewModel(exerciseName: exerciseName)
+        viewModel?.savedSignal.observeResult({ [weak self] (result) in
+            switch result {
+            case .success(let success):
+                if success {
+                    self?.navigationController?.popViewController(animated: true)
+                }
+                break
+            case .failure(let error):
+                break
+            }
+        })
+        
+        viewModel!.exerciseName <~ nameTextField.reactive.continuousTextValues.map({ $0 ?? ""}).take(during: lifetime)
+        viewModel!.exerciseReps <~ repsTextField.reactive.continuousTextValues.map({ Int($0 ?? "0") ?? 0 }).take(during: lifetime)
+        viewModel!.exerciseWeight <~ weightTextField.reactive.continuousTextValues.map({ Double($0 ?? "0") ?? 0.0 }).take(during: lifetime)
+        
+        viewModel?.retrievedSignal.observeResult({ [weak self] (result) in
+            switch result {
+            case .success:
+                self?.nameTextField.text = self?.viewModel?.exerciseName.value
+                self?.repsTextField.text = "\(self?.viewModel?.exerciseReps.value ?? 0)"
+                self?.weightTextField.text = "\(self?.viewModel?.exerciseWeight.value ?? 0)"
+            case .failure:
+                break
+            }
+        })
+        
+        viewModel?.fetchExercise()
+        nameTextField.isEnabled = viewModel?.editableName ?? true
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let exercise = Exercise()
-        let realm = try! Realm()
-        exercise.name = nameTextField.text!
-        let defaultSet = ExerciseSet()
-        defaultSet.reps = Int(repsTextField.text!)!
-        defaultSet.weight = Double(weightTextField.text!)!
-        exercise.defaultSet = defaultSet
-        try! realm.write {
-            realm.add(exercise)
-        }
-        
-        dismiss(animated: true, completion: nil)
+        viewModel?.save()
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

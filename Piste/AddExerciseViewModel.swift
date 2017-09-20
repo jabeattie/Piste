@@ -34,7 +34,7 @@ class AddExerciseViewModel {
         if exerciseName == nil || exerciseName == "new" {
             self.exerciseName.signal.observeValues({ name in
                 do {
-                    let realm = try Realm()
+                    let realm = try RealmProvider.realm()
                     
                     try realm.write {
                         self.exercise.name = name
@@ -50,7 +50,7 @@ class AddExerciseViewModel {
         exerciseReps.signal.observeValues({ reps in
             
             do {
-                let realm = try Realm()
+                let realm = try RealmProvider.realm()
                 
                 try realm.write {
                     if let set = self.exercise.defaultSet {
@@ -69,7 +69,7 @@ class AddExerciseViewModel {
         exerciseWeight.signal.observeValues({ weight in
             
             do {
-                let realm = try Realm()
+                let realm = try RealmProvider.realm()
                 
                 try realm.write {
                     if let set = self.exercise.defaultSet {
@@ -91,7 +91,7 @@ class AddExerciseViewModel {
     
     func save() {
         do {
-            let realm = try Realm()
+            let realm = try RealmProvider.realm()
             
             try realm.write {
                 realm.add(exercise)
@@ -106,7 +106,7 @@ class AddExerciseViewModel {
     func fetchExercise() {
         guard !exerciseName.value.isEmpty else { return }
         do {
-            let realm = try Realm()
+            let realm = try RealmProvider.realm()
             guard let e = realm.object(ofType: Exercise.self, forPrimaryKey: exerciseName.value) else {
                     return
             }

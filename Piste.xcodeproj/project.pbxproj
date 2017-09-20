@@ -10,6 +10,7 @@
 		3ACCD48523107B18256701D0 /* Pods_PisteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7447DF78E517ACE4674A4591 /* Pods_PisteUITests.framework */; };
 		4A0AD7931F40BE26008D437A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */; };
 		4A0AD7951F40C15A008D437A /* ExerciseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A0AD7941F40C15A008D437A /* ExerciseTableViewCell.xib */; };
+		4A334FAF1F5328C400E830B2 /* AppearanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A334FAE1F5328C400E830B2 /* AppearanceService.swift */; };
 		4A4D2F6C1F408A2500B21E55 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6A1F408A2500B21E55 /* WorkoutTableViewCell.swift */; };
 		4A4D2F6D1F408A2500B21E55 /* WorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6B1F408A2500B21E55 /* WorkoutTableViewCell.xib */; };
 		4A4D2F6F1F40937500B21E55 /* WorkoutsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F6E1F40937500B21E55 /* WorkoutsViewModel.swift */; };
@@ -19,6 +20,9 @@
 		4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */; };
 		4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */; };
 		4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */; };
+		4AAE44281F54421E0083CB30 /* AddExerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */; };
+		4AAE442A1F5448AD0083CB30 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE44291F5448AD0083CB30 /* RealmProvider.swift */; };
+		4AAE442C1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE442B1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift */; };
 		4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53541F09316A00D1D878 /* AppDelegate.swift */; };
 		4ABB53571F09316A00D1D878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53561F09316A00D1D878 /* ViewController.swift */; };
 		4ABB535A1F09316A00D1D878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABB53581F09316A00D1D878 /* Main.storyboard */; };
@@ -68,6 +72,7 @@
 		2BE2CA8E702C62A63A9D3735 /* Pods-PisteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PisteUITests/Pods-PisteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		4A0AD7941F40C15A008D437A /* ExerciseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseTableViewCell.xib; sourceTree = "<group>"; };
+		4A334FAE1F5328C400E830B2 /* AppearanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceService.swift; sourceTree = "<group>"; };
 		4A4D2F6A1F408A2500B21E55 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		4A4D2F6B1F408A2500B21E55 /* WorkoutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkoutTableViewCell.xib; sourceTree = "<group>"; };
 		4A4D2F6E1F40937500B21E55 /* WorkoutsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewModel.swift; sourceTree = "<group>"; };
@@ -77,6 +82,9 @@
 		4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
+		4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModelTests.swift; sourceTree = "<group>"; };
+		4AAE44291F5448AD0083CB30 /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		4AAE442B1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTemplateWorkoutViewModelTests.swift; sourceTree = "<group>"; };
 		4ABB53511F09316A00D1D878 /* Piste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Piste.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABB53541F09316A00D1D878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ABB53561F09316A00D1D878 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +260,8 @@
 			children = (
 				4ABB53691F09316A00D1D878 /* PisteTests.swift */,
 				4ABB536B1F09316A00D1D878 /* Info.plist */,
+				4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */,
+				4AAE442B1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift */,
 			);
 			path = PisteTests;
 			sourceTree = "<group>";
@@ -300,6 +310,8 @@
 				4ABB53541F09316A00D1D878 /* AppDelegate.swift */,
 				4ABB53941F093F3E00D1D878 /* RouterService.swift */,
 				4ABB53A31F0AE38100D1D878 /* RealmService.swift */,
+				4A334FAE1F5328C400E830B2 /* AppearanceService.swift */,
+				4AAE44291F5448AD0083CB30 /* RealmProvider.swift */,
 			);
 			name = "AppDelegate+Services";
 			sourceTree = "<group>";
@@ -627,6 +639,7 @@
 				4ABB53871F093A3800D1D878 /* ExerciseSet.swift in Sources */,
 				4A4D2F771F40991700B21E55 /* AddTemplateWorkoutViewModel.swift in Sources */,
 				4A4D2F751F40952B00B21E55 /* AddTemplateWorkoutViewController.swift in Sources */,
+				4AAE442A1F5448AD0083CB30 /* RealmProvider.swift in Sources */,
 				4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */,
 				4ABB53991F0989C800D1D878 /* TemplateViewController.swift in Sources */,
 				4A0AD7931F40BE26008D437A /* UITableView+Extensions.swift in Sources */,
@@ -647,6 +660,7 @@
 				4ABB539D1F098F3100D1D878 /* TemplateWorkoutsViewModel.swift in Sources */,
 				4A4D2F6C1F408A2500B21E55 /* WorkoutTableViewCell.swift in Sources */,
 				4ABB539B1F098BE600D1D878 /* ExerciseTableViewCell.swift in Sources */,
+				4A334FAF1F5328C400E830B2 /* AppearanceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +668,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AAE442C1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift in Sources */,
+				4AAE44281F54421E0083CB30 /* AddExerciseViewModelTests.swift in Sources */,
 				4ABB536A1F09316A00D1D878 /* PisteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -815,6 +831,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = Piste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ceramic.Piste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -829,6 +846,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = Piste/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ceramic.Piste;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -26,19 +26,18 @@ class RealmService: NSObject, UIApplicationDelegate {
         do {
             
             let config = Realm.Configuration(
-                schemaVersion: 3,
+                schemaVersion: 4,
                 migrationBlock: { migration, oldSchemaVersion in
-                    if oldSchemaVersion < 3 {
+                    if oldSchemaVersion < 4 {
                         
                     }
             })
             
             Realm.Configuration.defaultConfiguration = config
             
+            let realm = try RealmProvider.realm()
 //            print(Realm.Configuration.defaultConfiguration.fileURL!)
-            
-            let realm = try Realm()
-            
+                
             let users = realm.objects(User.self)
             
             if users.count > 0 {

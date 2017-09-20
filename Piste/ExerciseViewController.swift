@@ -43,6 +43,10 @@ class ExerciseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }

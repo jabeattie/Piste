@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var services: [UIApplicationDelegate] = [
         RouterService(),
-        RealmService(window: self.window)
+        RealmService(window: self.window),
+        AppearanceService()
     ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

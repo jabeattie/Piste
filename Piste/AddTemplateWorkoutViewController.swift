@@ -24,10 +24,14 @@ class AddTemplateWorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         let addButton = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(saveWorkout))
-        self.navigationItem.rightBarButtonItem = addButton
 
-        let templateId = Int(templateWorkoutId ?? "")
-        viewModel = AddTemplateWorkoutViewModel(templateId: templateId)
+        if let templateId = Int(templateWorkoutId ?? "") {
+            addButton.title = "Save"
+            viewModel = AddTemplateWorkoutViewModel(templateId: templateId)
+            nameTextField.text = viewModel?.name.value
+            nameTextField.isUserInteractionEnabled = false
+        }
+        self.navigationItem.rightBarButtonItem = addButton
         
         tableView.register(ExerciseTableViewCell.self)
         tableView.dataSource = self

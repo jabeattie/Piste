@@ -14,4 +14,8 @@ class Workout: Object {
     @objc dynamic var name = ""
     let exercises = List<WorkoutExercise>()
     @objc dynamic var templateWorkout: TemplateWorkout? = nil
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }

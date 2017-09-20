@@ -27,7 +27,14 @@ class AddExerciseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupGradientView()
+        
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationItem.title = exerciseName == nil || exerciseName == "new" ? "Add new exercise" : "Edit \(exerciseName!)"
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "Exercise", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
+        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
+        repsTextField.attributedPlaceholder = NSAttributedString(string: "Reps", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
         // Do any additional setup after loading the view.
         
         viewModel = AddExerciseViewModel(exerciseName: exerciseName)
@@ -62,8 +69,29 @@ class AddExerciseViewController: UIViewController {
         nameTextField.isEnabled = viewModel?.editableName ?? true
     }
     
+    private func setupGradientView() {
+        let gradientLayer = CAGradientLayer()
+        
+        gradientLayer.frame = self.view.bounds
+        // 3
+        let color1 = UIColor(red: 255 / 255.0, green: 66 / 255.0, blue: 36 / 255.0, alpha: 1.0).cgColor
+        let color2 = UIColor(red: 255 / 255.0, green: 0 / 255.0, blue: 76 / 255.0, alpha: 1.0).cgColor
+        gradientLayer.colors = [color1, color2]
+        
+        // 4
+        gradientLayer.locations = [0.0, 1.0]
+        
+        // 5
+        view.layer.insertSublayer(gradientLayer, at: 0)
+//        self.view.layer.addSublayer(gradientLayer)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         viewModel?.save()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
 }

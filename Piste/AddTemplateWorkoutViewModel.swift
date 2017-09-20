@@ -28,7 +28,7 @@ class AddTemplateWorkoutViewModel {
         (exercisesUpdatedSignal, exercisesUpdatedObserver) = Signal<Void, NSError>.pipe()
         (savedSignal, savedObserver) = Signal<Bool, NSError>.pipe()
         
-        let realm = try? Realm()
+        let realm = try? RealmProvider.realm()
         
         if let id = id, id >= 0, let t = realm?.object(ofType: TemplateWorkout.self, forPrimaryKey: id) {
             templateId = id
@@ -45,7 +45,7 @@ class AddTemplateWorkoutViewModel {
         }
         
         name.signal.observeValues { (name) in
-            let realm = try? Realm()
+            let realm = try? RealmProvider.realm()
             try? realm?.write {
                 self.template.name = name
             }
@@ -64,7 +64,7 @@ class AddTemplateWorkoutViewModel {
         
         guard !name.isEmpty else { return }
         do {
-            let realm = try Realm()
+            let realm = try RealmProvider.realm()
             guard let exercise = realm.object(ofType: Exercise.self, forPrimaryKey: name) else {
                 return
             }
@@ -81,7 +81,7 @@ class AddTemplateWorkoutViewModel {
     func save() {
         guard !template.name.isEmpty else { return }
         do {
-            let realm = try Realm()
+            let realm = try RealmProvider.realm()
             
             try realm.write {
                 realm.add(template)

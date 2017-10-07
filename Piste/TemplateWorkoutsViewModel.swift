@@ -26,6 +26,10 @@ struct TemplateWorkoutsViewModel {
         fetchTemplateWorkouts()
     }
     
+    var title: String {
+        return "Workouts"
+    }
+    
     var count: Int {
         return templateWorkouts?.count ?? 0
     }

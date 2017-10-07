@@ -23,8 +23,33 @@ class ExerciseViewController: UIViewController {
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddExerciseScreen))
         self.navigationItem.rightBarButtonItem = addButton
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        setupViewModel()
+        setupTableView()
+        setupSearchController()
+        title = viewModel?.title
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = UIColor.pisteRed
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    func setupSearchController() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+    }
+    
+    func setupViewModel() {
         viewModel = ExerciseViewModel()
-        
         viewModel?.savedSignal.observeResult({ [weak self] (result) in
             switch result {
             case .success:
@@ -34,26 +59,14 @@ class ExerciseViewController: UIViewController {
                 print(error.localizedDescription)
             }
         })
-        
+    }
+
+    func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.tintColor = UIColor.black
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60
+        tableView.register(ExerciseTableViewCell.self)
     }
     
     @objc func showNewAddExerciseScreen() {
@@ -75,8 +88,10 @@ extension ExerciseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ExerciseTableViewCell
+        let cell: ExerciseTableViewCell = tableView.dequeueResuableCell(forIndexPath: indexPath)
         cell.label.text = viewModel?.exerciseName(atIndex: indexPath.row)
+        cell.weightLabel.text = viewModel?.exerciseWeight(atIndex: indexPath.row)
+        cell.repsLabel.text = viewModel?.exerciseReps(atIndex: indexPath.row)
         return cell
     }
 }
@@ -102,5 +117,13 @@ extension ExerciseViewController: UITableViewDelegate {
             viewModel?.deleteExercise(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
+    }
+}
+
+extension ExerciseViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchTerm = searchController.searchBar.text else { return }
+        viewModel?.update(searchPattern: searchTerm)
+        tableView.reloadData()
     }
 }

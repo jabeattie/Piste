@@ -32,9 +32,9 @@ class AddExerciseViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.title = exerciseName == nil || exerciseName == "new" ? "Add new exercise" : "Edit \(exerciseName!)"
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "Exercise", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
-        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
-        repsTextField.attributedPlaceholder = NSAttributedString(string: "Reps", attributes: [NSForegroundColorAttributeName : UIColor.white.withAlphaComponent(0.3)])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "Exercise", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
+        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
+        repsTextField.attributedPlaceholder = NSAttributedString(string: "Reps", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
         // Do any additional setup after loading the view.
         
         viewModel = AddExerciseViewModel(exerciseName: exerciseName)

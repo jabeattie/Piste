@@ -20,6 +20,8 @@
 		4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */; };
 		4A7AACC91F1415A60083E779 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */; };
 		4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */; };
+		4AAACEDD1F892974003178C6 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAACEDC1F892974003178C6 /* UIImage+Assets.swift */; };
+		4AAACEDF1F892A18003178C6 /* UIColor+Piste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAACEDE1F892A18003178C6 /* UIColor+Piste.swift */; };
 		4AAE44281F54421E0083CB30 /* AddExerciseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */; };
 		4AAE442A1F5448AD0083CB30 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE44291F5448AD0083CB30 /* RealmProvider.swift */; };
 		4AAE442C1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE442B1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift */; };
@@ -82,6 +84,8 @@
 		4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		4A7AACC81F1415A60083E779 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		4A8EC9731F2E6BDD0069508B /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
+		4AAACEDC1F892974003178C6 /* UIImage+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
+		4AAACEDE1F892A18003178C6 /* UIColor+Piste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Piste.swift"; sourceTree = "<group>"; };
 		4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModelTests.swift; sourceTree = "<group>"; };
 		4AAE44291F5448AD0083CB30 /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		4AAE442B1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTemplateWorkoutViewModelTests.swift; sourceTree = "<group>"; };
@@ -182,13 +186,13 @@
 			name = AddExercise;
 			sourceTree = "<group>";
 		};
-		4A4D2F731F4093BE00B21E55 /* AddWorkout */ = {
+		4A4D2F731F4093BE00B21E55 /* AddTemplateWorkout */ = {
 			isa = PBXGroup;
 			children = (
 				4A4D2F741F40952B00B21E55 /* AddTemplateWorkoutViewController.swift */,
 				4A4D2F761F40991600B21E55 /* AddTemplateWorkoutViewModel.swift */,
 			);
-			name = AddWorkout;
+			name = AddTemplateWorkout;
 			sourceTree = "<group>";
 		};
 		4A4D2F781F409C2B00B21E55 /* TemplateWorkouts */ = {
@@ -206,6 +210,8 @@
 				4A4D2F7A1F40BCF400B21E55 /* NibLoadableView.swift */,
 				4A4D2F7C1F40BD5F00B21E55 /* ReusableView.swift */,
 				4A0AD7921F40BE26008D437A /* UITableView+Extensions.swift */,
+				4AAACEDC1F892974003178C6 /* UIImage+Assets.swift */,
+				4AAACEDE1F892A18003178C6 /* UIColor+Piste.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -237,7 +243,7 @@
 			children = (
 				4A4D2F791F40BCE600B21E55 /* Extension */,
 				4A4D2F781F409C2B00B21E55 /* TemplateWorkouts */,
-				4A4D2F731F4093BE00B21E55 /* AddWorkout */,
+				4A4D2F731F4093BE00B21E55 /* AddTemplateWorkout */,
 				4A4D2F721F4093AF00B21E55 /* AddExercise */,
 				4A4D2F711F40939B00B21E55 /* Exercises */,
 				4A4D2F701F40937900B21E55 /* Workouts */,
@@ -354,6 +360,7 @@
 			buildConfigurationList = 4ABB53791F09316A00D1D878 /* Build configuration list for PBXNativeTarget "Piste" */;
 			buildPhases = (
 				2A537B5AA561AD1FC665FBBC /* [CP] Check Pods Manifest.lock */,
+				4AAACEDB1F892701003178C6 /* ShellScript */,
 				4ABB534D1F09316A00D1D878 /* Sources */,
 				4ABB534E1F09316A00D1D878 /* Frameworks */,
 				4ABB534F1F09316A00D1D878 /* Resources */,
@@ -496,14 +503,31 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Piste-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AAACEDB1F892701003178C6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Piste/Assets.xcassets",
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "$PODS_ROOT/SwiftGen/bin/swiftgen xcassets $SOURCE_ROOT/Piste/Assets.xcassets -t swift4 -o $SOURCE_ROOT/Piste/UIImage+Assets.swift --param enumName=PisteAsset";
 		};
 		6E9CB6EA99D0E8679EF961F6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -556,13 +580,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PisteTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC5A41907C112C2A109974BA /* [CP] Embed Pods Frameworks */ = {
@@ -571,9 +598,24 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Piste/Pods-Piste-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fuse/Fuse.framework",
+				"${BUILT_PRODUCTS_DIR}/JLSwiftRouter/JLSwiftRouter.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLSwiftRouter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -586,13 +628,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PisteUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EE354441F9FBC4EB827AB3E4 /* [CP] Copy Pods Resources */ = {
@@ -639,6 +684,7 @@
 				4ABB53871F093A3800D1D878 /* ExerciseSet.swift in Sources */,
 				4A4D2F771F40991700B21E55 /* AddTemplateWorkoutViewModel.swift in Sources */,
 				4A4D2F751F40952B00B21E55 /* AddTemplateWorkoutViewController.swift in Sources */,
+				4AAACEDF1F892A18003178C6 /* UIColor+Piste.swift in Sources */,
 				4AAE442A1F5448AD0083CB30 /* RealmProvider.swift in Sources */,
 				4A4D2F7D1F40BD5F00B21E55 /* ReusableView.swift in Sources */,
 				4ABB53991F0989C800D1D878 /* TemplateViewController.swift in Sources */,
@@ -648,6 +694,7 @@
 				4ABB53A11F0ADB6000D1D878 /* ExerciseViewModel.swift in Sources */,
 				4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */,
 				4ABB538B1F093B3900D1D878 /* WorkoutExercise.swift in Sources */,
+				4AAACEDD1F892974003178C6 /* UIImage+Assets.swift in Sources */,
 				4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */,
 				4ABB53951F093F3E00D1D878 /* RouterService.swift in Sources */,
 				4A4D2F6F1F40937500B21E55 /* WorkoutsViewModel.swift in Sources */,
@@ -831,11 +878,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = Piste/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ceramic.Piste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -846,11 +893,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = Piste/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ceramic.Piste;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -2,23 +2,24 @@
 
 #if os(OSX)
   import AppKit.NSImage
-  typealias AssetColorTypeAlias = NSColor
-  typealias Image = NSImage
+  internal typealias AssetColorTypeAlias = NSColor
+  internal typealias Image = NSImage
 #elseif os(iOS) || os(tvOS) || os(watchOS)
   import UIKit.UIImage
-  typealias AssetColorTypeAlias = UIColor
-  typealias Image = UIImage
+  internal typealias AssetColorTypeAlias = UIColor
+  internal typealias Image = UIImage
 #endif
 
+// swiftlint:disable superfluous_disable_command
 // swiftlint:disable file_length
 
 @available(*, deprecated, renamed: "ImageAsset")
-typealias PisteAssetType = ImageAsset
+internal typealias PisteAssetType = ImageAsset
 
-struct ImageAsset {
-  fileprivate var name: String
+internal struct ImageAsset {
+  internal fileprivate(set) var name: String
 
-  var image: Image {
+  internal var image: Image {
     let bundle = Bundle(for: BundleToken.self)
     #if os(iOS) || os(tvOS)
     let image = Image(named: name, in: bundle, compatibleWith: nil)
@@ -32,36 +33,36 @@ struct ImageAsset {
   }
 }
 
-struct ColorAsset {
-  fileprivate var name: String
+internal struct ColorAsset {
+  internal fileprivate(set) var name: String
 
   @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
-  var color: AssetColorTypeAlias {
+  internal var color: AssetColorTypeAlias {
     return AssetColorTypeAlias(asset: self)
   }
 }
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
-enum PisteAsset {
-  static let weight = ImageAsset(name: "Weight")
-  static let exercise = ImageAsset(name: "Exercise")
-  static let reps = ImageAsset(name: "Reps")
+internal enum PisteAsset {
+  internal static let exercise = ImageAsset(name: "Exercise")
+  internal static let reps = ImageAsset(name: "Reps")
+  internal static let weight = ImageAsset(name: "Weight")
 
   // swiftlint:disable trailing_comma
-  static let allColors: [ColorAsset] = [
+  internal static let allColors: [ColorAsset] = [
   ]
-  static let allImages: [ImageAsset] = [
-    weight,
+  internal static let allImages: [ImageAsset] = [
     exercise,
     reps,
+    weight,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")
-  static let allValues: [PisteAssetType] = allImages
+  internal static let allValues: [PisteAssetType] = allImages
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
-extension Image {
+internal extension Image {
   @available(iOS 1.0, tvOS 1.0, watchOS 1.0, *)
   @available(OSX, deprecated,
     message: "This initializer is unsafe on macOS, please use the ImageAsset.image property")
@@ -77,7 +78,7 @@ extension Image {
   }
 }
 
-extension AssetColorTypeAlias {
+internal extension AssetColorTypeAlias {
   @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
   convenience init!(asset: ColorAsset) {
     let bundle = Bundle(for: BundleToken.self)

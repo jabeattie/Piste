@@ -32,6 +32,8 @@ class AddTemplateWorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradientView()
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.tintColor = UIColor.white
         setupCollectionView()
         setupViewModel()
         bottomButton.setTitle(viewModel.buttonTitle, for: .normal)
@@ -42,12 +44,10 @@ class AddTemplateWorkoutViewController: UIViewController {
     }
     
     @IBAction func addExercisePressed(_ sender: UIButton) {
-        print("Add exercise")
-        // TODO: Replace router
-//        let router = Router.shared
-//        let vc = router.matchControllerFromStoryboard("/exercises", storyboardName: "Main") as! ExerciseViewController
-//        vc.delegate = viewModel
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let viewModel = ExerciseViewModel()
+        let vc = ExerciseViewController(viewModel: viewModel)
+        vc.delegate = self.viewModel
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func setupCollectionView() {

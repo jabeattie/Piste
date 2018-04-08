@@ -8,12 +8,19 @@
 
 import UIKit
 import RealmSwift
-import JLSwiftRouter
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    
+    init() {
+        super.init(nibName: String(describing: LoginViewController.self), bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +55,7 @@ class LoginViewController: UIViewController {
                 realm.add(user)
             }
             
-            let router = Router.shared
-            let dashboardVC = router.matchControllerFromStoryboard("/dashboard/\(user.id)", storyboardName: "Main") as! DashboardViewController
+            let dashboardVC = DashboardViewController(userId: user.id)
             navigationController?.pushViewController(dashboardVC, animated: true)
             
             

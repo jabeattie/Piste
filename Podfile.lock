@@ -1,6 +1,5 @@
 PODS:
   - Fuse (1.1.0)
-  - JLSwiftRouter (2.0.0)
   - ReactiveCocoa (7.1.0):
     - ReactiveSwift (~> 3.1)
   - ReactiveSwift (3.1.0):
@@ -12,35 +11,26 @@ PODS:
     - Realm (= 3.3.2)
   - Result (3.2.4)
   - SwiftGen (5.3.0)
+  - SwiftLint (0.25.0)
 
 DEPENDENCIES:
   - Fuse
-  - JLSwiftRouter (from `https://github.com/skyline75489/SwiftRouter.git`, tag `2.0.0`)
   - ReactiveCocoa
   - ReactiveSwift
   - RealmSwift
   - SwiftGen
-
-EXTERNAL SOURCES:
-  JLSwiftRouter:
-    :git: https://github.com/skyline75489/SwiftRouter.git
-    :tag: 2.0.0
-
-CHECKOUT OPTIONS:
-  JLSwiftRouter:
-    :git: https://github.com/skyline75489/SwiftRouter.git
-    :tag: 2.0.0
+  - SwiftLint
 
 SPEC CHECKSUMS:
   Fuse: 34e3968a93e77b774af6b8b631fcfb61bf829c98
-  JLSwiftRouter: 3d6098b3d4c1d2ea8336dc32c0d2e13e56412c7f
   ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
   RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SwiftGen: 4379bd3640b0a212a0f6ea3c494adba385513d10
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: bb3ce472fc37a1095ef92dcfb5e56edf62feb1d7
+PODFILE CHECKSUM: 8e8e90a2b12878aaffa8278a7b1323cfbe50fe0c
 
 COCOAPODS: 1.4.0

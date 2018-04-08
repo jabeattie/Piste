@@ -82,7 +82,7 @@ struct ExerciseViewModel {
     }
     
     mutating func update(searchPattern: String) {
-        guard searchPattern.count > 0 else {
+        guard !searchPattern.isEmpty else {
             fusePattern = nil
             return
         }

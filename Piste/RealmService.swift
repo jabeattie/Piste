@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import JLSwiftRouter
 
 class RealmService: NSObject, UIApplicationDelegate {
     
@@ -19,15 +18,14 @@ class RealmService: NSObject, UIApplicationDelegate {
         self.window = window
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         
-        let router = Router.shared
         let navC: UINavigationController
         do {
             
             let config = Realm.Configuration(
                 schemaVersion: 4,
-                migrationBlock: { migration, oldSchemaVersion in
+                migrationBlock: { _, oldSchemaVersion in
                     if oldSchemaVersion < 4 {
                         
                     }
@@ -36,15 +34,14 @@ class RealmService: NSObject, UIApplicationDelegate {
             Realm.Configuration.defaultConfiguration = config
             
             let realm = try RealmProvider.realm()
-//            print(Realm.Configuration.defaultConfiguration.fileURL!)
                 
             let users = realm.objects(User.self)
             
-            if users.count > 0 {
-                let dashboardVC = router.matchControllerFromStoryboard("/dashboard/\(users.first!.id)", storyboardName: "Main") as! DashboardViewController
+            if let first = users.first {
+                let dashboardVC = DashboardViewController(userId: first.id)
                 navC = UINavigationController(rootViewController: dashboardVC)
             } else {
-                let loginVC = router.matchControllerFromStoryboard("/login", storyboardName: "Main") as! LoginViewController
+                let loginVC = LoginViewController()
                 navC = UINavigationController(rootViewController: loginVC)
             }
             

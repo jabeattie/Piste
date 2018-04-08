@@ -12,6 +12,7 @@ import ReactiveSwift
 
 class AddExerciseViewModel {
     
+    var title: String
     var savedSignal: Signal<Bool, NSError>
     var savedObserver: Signal<Bool, NSError>.Observer
     var retrievedSignal: Signal<Void, NSError>
@@ -31,7 +32,11 @@ class AddExerciseViewModel {
         (savedSignal, savedObserver) = Signal<Bool, NSError>.pipe()
         (retrievedSignal, retrievedObserver) = Signal<Void, NSError>.pipe()
         
-        if exerciseName == nil || exerciseName == "new" {
+        if let exName = exerciseName, exName != "new" {
+            self.title = "Edit \(exName)"
+            self.exerciseName.value = exName
+        } else {
+            self.title = "Add new exercise"
             self.exerciseName.signal.observeValues({ name in
                 do {
                     let realm = try RealmProvider.realm()
@@ -43,9 +48,6 @@ class AddExerciseViewModel {
                     self.savedObserver.send(value: false)
                 }
             })
-            
-        } else {
-            self.exerciseName.value = exerciseName ?? ""
         }
         exerciseReps.signal.observeValues({ reps in
             

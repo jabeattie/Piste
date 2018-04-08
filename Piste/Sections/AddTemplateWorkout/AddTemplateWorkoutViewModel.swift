@@ -18,13 +18,14 @@ class AddTemplateWorkoutViewModel {
     private var savedObserver: Signal<Bool, NSError>.Observer
     private var exercisesUpdatedObserver: Signal<Void, NSError>.Observer
     
+    var buttonTitle: String
     var name = MutableProperty<String>("")
     var exercises = MutableProperty<List<Exercise>>(List<Exercise>())
     var templateId: Int
     let template: TemplateWorkout
     
     init(templateId id: Int?) {
-        
+        buttonTitle = id == nil ? "Create" : "Save"
         (exercisesUpdatedSignal, exercisesUpdatedObserver) = Signal<Void, NSError>.pipe()
         (savedSignal, savedObserver) = Signal<Bool, NSError>.pipe()
         
@@ -56,8 +57,8 @@ class AddTemplateWorkoutViewModel {
         return template.exercises.count
     }
     
-    func exerciseName(atIndex index: Int) -> String? {
-        return template.exercises[index].name
+    func cellViewModel(at index: Int) -> ExerciseCellViewModel? {
+        return ExerciseCellViewModel(exercise: template.exercises[index], type: .light)
     }
     
     func addExercise(name: String) {

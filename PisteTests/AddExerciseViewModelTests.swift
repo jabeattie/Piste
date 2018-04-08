@@ -45,7 +45,7 @@ class AddExerciseViewModelTests: XCTestCase {
             if result.value ?? false {
                 let realm = try! RealmProvider.realm()
                 let exercise = realm.objects(Exercise.self)
-                if exercise.count > 0 {
+                if !exercise.isEmpty {
                     exp.fulfill()
                 }
             }

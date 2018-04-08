@@ -6,13 +6,12 @@ target 'Piste' do
   use_frameworks!
 
   # Pods for Piste
+  pod 'SwiftLint'
   pod 'Fuse'
   pod 'SwiftGen'
   pod 'ReactiveSwift'
   pod 'ReactiveCocoa'
   pod 'RealmSwift'
-  pod 'JLSwiftRouter', :git => 'https://github.com/skyline75489/SwiftRouter.git', :tag => '2.0.0'
-
 
   target 'PisteTests' do
     inherit! :search_paths
@@ -29,7 +28,7 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = 3.2
+            config.build_settings['SWIFT_VERSION'] = 4.0
         end
     end
 end

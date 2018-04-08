@@ -8,12 +8,15 @@
 
 import UIKit
 
-protocol ReusableView: class { }
+protocol ReusableView: class {
+    static var defaultReuseIdentifier: String { get }
+}
 
 extension ReusableView where Self: UIView {
-    static var reuseIdentifier: String {
+    static var defaultReuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 extension UITableViewCell: ReusableView { }
+extension UICollectionReusableView: ReusableView { }

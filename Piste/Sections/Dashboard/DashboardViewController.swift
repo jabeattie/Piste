@@ -7,18 +7,26 @@
 //
 
 import UIKit
-import JLSwiftRouter
 
 class DashboardViewController: UIViewController {
     
     @IBOutlet weak var userIDLabel: UILabel!
-    @objc var userId: String?
-
+    private var userId: Int
+    
+    init(userId: Int) {
+        self.userId = userId
+        super.init(nibName: String(describing: DashboardViewController.self), bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        userIDLabel.text = userId
+        userIDLabel.text = "\(userId)"
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,25 +34,15 @@ class DashboardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func exercisesTapped(_ sender: UIButton) {
-        let router = Router.shared
-        let vc = router.matchControllerFromStoryboard("/exercises", storyboardName: "Main") as! UIViewController
+        let viewModel = ExerciseViewModel()
+        let vc = ExerciseViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func workoutsTapped(_ sender: UIButton) {
-        let router = Router.shared
-        let vc = router.matchControllerFromStoryboard("/templateWorkouts", storyboardName: "Main") as! UIViewController
+        let viewModel = TemplateWorkoutsViewModel()
+        let vc = TemplateWorkoutsViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

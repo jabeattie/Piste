@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol NibLoadableView: class { }
+protocol NibLoadableView: class {
+    static var nibName: String { get }
+}
 
 extension NibLoadableView where Self: UIView {
     static var nibName: String {
-        return String(describing: self)
+        return String(describing: self).components(separatedBy: ".").last!
     }
 }
-
-extension UITableViewCell: NibLoadableView { }

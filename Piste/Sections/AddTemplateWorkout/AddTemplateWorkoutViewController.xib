@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTemplateWorkoutViewController" customModule="Piste" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomButton" destination="fL1-3v-yJ7" id="har-pC-dCK"/>
+                <outlet property="collectionView" destination="eTh-we-06O" id="NqP-b0-bqg"/>
+                <outlet property="nameTextField" destination="kpK-hV-QDu" id="oAM-Lf-yNK"/>
+                <outlet property="view" destination="iN0-l3-epB" id="YzE-M1-w52"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cQt-wK-vdE">
+                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4t-rc-3EI">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-xk-T3H">
+                                    <rect key="frame" x="16" y="0.0" width="343" height="50"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Exercise" translatesAutoresizingMaskIntoConstraints="NO" id="vhG-OX-0FT">
+                                            <rect key="frame" x="0.0" y="10" width="35" height="30"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="mWz-op-1Wx"/>
+                                                <constraint firstAttribute="width" constant="35" id="vej-Az-APO"/>
+                                            </constraints>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Workout name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kpK-hV-QDu">
+                                            <rect key="frame" x="55" y="13" width="288" height="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="ZHa-wQ-m1n"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="sEX-xk-T3H" secondAttribute="trailing" constant="16" id="Dtu-kE-vqm"/>
+                                <constraint firstItem="sEX-xk-T3H" firstAttribute="top" secondItem="a4t-rc-3EI" secondAttribute="top" id="Dv7-yj-GRt"/>
+                                <constraint firstItem="sEX-xk-T3H" firstAttribute="leading" secondItem="a4t-rc-3EI" secondAttribute="leading" constant="16" id="ENc-WA-eDq"/>
+                                <constraint firstAttribute="bottom" secondItem="sEX-xk-T3H" secondAttribute="bottom" id="Hvf-J3-6sc"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7a-WI-b4V">
+                            <rect key="frame" x="0.0" y="50" width="375" height="64"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uad-bR-CKk">
+                                    <rect key="frame" x="16" y="34" width="69" height="22"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asj-H6-mZv">
+                                    <rect key="frame" x="337" y="26" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="cO8-4p-yq6"/>
+                                        <constraint firstAttribute="width" constant="30" id="vDD-3B-tdy"/>
+                                    </constraints>
+                                    <state key="normal" image="redPlus"/>
+                                    <connections>
+                                        <action selector="addExercisePressed:" destination="-1" eventType="touchUpInside" id="cn1-2T-yBT"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="1tj-o3-5oe"/>
+                                <constraint firstAttribute="bottom" secondItem="asj-H6-mZv" secondAttribute="bottom" constant="8" id="8P9-pc-bUe"/>
+                                <constraint firstAttribute="bottom" secondItem="uad-bR-CKk" secondAttribute="bottom" constant="8" id="UZ8-O5-ZTy"/>
+                                <constraint firstAttribute="trailing" secondItem="asj-H6-mZv" secondAttribute="trailing" constant="8" id="l8f-hI-q0h"/>
+                                <constraint firstItem="uad-bR-CKk" firstAttribute="leading" secondItem="D7a-WI-b4V" secondAttribute="leading" constant="16" id="zUz-1B-t7T"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eTh-we-06O">
+                            <rect key="frame" x="0.0" y="114" width="375" height="453"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="INE-Bt-cBq">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL1-3v-yJ7">
+                            <rect key="frame" x="0.0" y="567" width="375" height="60"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="fO8-Sp-iAt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                            <state key="normal" title="Save">
+                                <color key="titleColor" red="0.98039215690000003" green="0.1960784314" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="saveWorkout:" destination="-1" eventType="touchUpInside" id="ocm-oP-Ru3"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.98039215690000003" green="0.1960784314" blue="0.32156862749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="cQt-wK-vdE" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1sM-3Q-lO6"/>
+                <constraint firstItem="cQt-wK-vdE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="HeJ-Xj-1bl"/>
+                <constraint firstItem="cQt-wK-vdE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="mVD-8b-L5c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="cQt-wK-vdE" secondAttribute="bottom" id="ukB-yL-ciM"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Exercise" width="36" height="30"/>
+        <image name="redPlus" width="23" height="23"/>
+    </resources>
+</document>

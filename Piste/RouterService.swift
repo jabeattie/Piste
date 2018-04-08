@@ -7,20 +7,11 @@
 //
 
 import UIKit
-import JLSwiftRouter
-import RealmSwift
 
 class RouterService: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        let router = Router.shared
-        router.map("/login", controllerClass: LoginViewController.self)
-        router.map("/dashboard/:userId", controllerClass: DashboardViewController.self)
-        router.map("/templateWorkouts", controllerClass: TemplateWorkoutsViewController.self)
-        router.map("/exercises", controllerClass: ExerciseViewController.self)
-        router.map("/addExercise/:exerciseName", controllerClass: AddExerciseViewController.self)
-        router.map("/addTemplateWorkout/:templateWorkoutId", controllerClass: AddTemplateWorkoutViewController.self)
         return true
     }
     

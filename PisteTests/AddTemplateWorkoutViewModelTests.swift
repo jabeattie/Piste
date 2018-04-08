@@ -42,7 +42,7 @@ class AddTemplateWorkoutViewModelTests: XCTestCase {
             if result.value ?? false {
                 let realm = try! RealmProvider.realm()
                 let exercise = realm.objects(TemplateWorkout.self)
-                if exercise.count > 0 {
+                if !exercise.isEmpty {
                     exp.fulfill()
                 }
             }
@@ -56,7 +56,7 @@ class AddTemplateWorkoutViewModelTests: XCTestCase {
             }
         }
     }
-    
+
     func testFetchTemplate() {
         createAndAddTemplateWorkout()
         

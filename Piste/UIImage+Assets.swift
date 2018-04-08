@@ -47,6 +47,7 @@ internal enum PisteAsset {
   internal static let exercise = ImageAsset(name: "Exercise")
   internal static let reps = ImageAsset(name: "Reps")
   internal static let weight = ImageAsset(name: "Weight")
+  internal static let redPlus = ImageAsset(name: "redPlus")
 
   // swiftlint:disable trailing_comma
   internal static let allColors: [ColorAsset] = [
@@ -55,6 +56,7 @@ internal enum PisteAsset {
     exercise,
     reps,
     weight,
+    redPlus,
   ]
   // swiftlint:enable trailing_comma
   @available(*, deprecated, renamed: "allImages")

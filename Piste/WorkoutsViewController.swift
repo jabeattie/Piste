@@ -10,7 +10,7 @@ import UIKit
 
 class WorkoutsViewController: UIViewController {
     
-    let workoutTableIdentifier = String(describing: WorkoutTableViewCell.self)
+    let workoutTableIdentifier = String(describing: WorkoutViewCell.self)
 
     @IBOutlet weak var tableView: UITableView!
     

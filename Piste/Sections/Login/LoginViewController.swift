@@ -22,17 +22,6 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func loginPressed(_ sender: UIButton) {
         guard let ageString = ageTextField.text,
             let name = nameTextField.text,
@@ -55,10 +44,9 @@ class LoginViewController: UIViewController {
                 realm.add(user)
             }
             
-            let dashboardVC = DashboardViewController(userId: user.id)
+            let viewModel = DashboardViewModel(user: user)
+            let dashboardVC = DashboardViewController(viewModel: viewModel)
             navigationController?.pushViewController(dashboardVC, animated: true)
-            
-            
         } catch let jsonError as NSError {
             print(jsonError)
         }

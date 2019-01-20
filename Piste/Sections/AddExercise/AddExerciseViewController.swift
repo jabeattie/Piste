@@ -39,9 +39,9 @@ class AddExerciseViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.title = viewModel.title
-        nameTextField.attributedPlaceholder = NSAttributedString(string: "Exercise", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
-        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
-        repsTextField.attributedPlaceholder = NSAttributedString(string: "Reps", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white.withAlphaComponent(0.3)])
+        nameTextField.attributedPlaceholder = NSAttributedString(string: "Exercise", attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.3)])
+        weightTextField.attributedPlaceholder = NSAttributedString(string: "Weight", attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.3)])
+        repsTextField.attributedPlaceholder = NSAttributedString(string: "Reps", attributes: [.foregroundColor: UIColor.white.withAlphaComponent(0.3)])
         // Do any additional setup after loading the view.
         
         viewModel.savedSignal.observeResult({ [weak self] (result) in
@@ -50,7 +50,6 @@ class AddExerciseViewController: UIViewController {
                 if success {
                     self?.navigationController?.popViewController(animated: true)
                 }
-                break
             case .failure(let error):
                 break
             }

@@ -45,7 +45,14 @@ class TemplateWorkoutsViewController: UIViewController {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = UIColor.pisteRed
+        navigationController?.navigationBar.barStyle = .default
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         collectionView.reloadData()
     }
     

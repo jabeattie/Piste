@@ -23,68 +23,70 @@ class AddExerciseViewModel {
     
     private var exercise = Exercise()
     private var existsInRealm = false
+    private let realmProvider: RealmProvider
     
     var editableName: Bool {
         return !existsInRealm
     }
     
-    init(exerciseName: String?) {
+    init(exerciseName: String?, realmProvider: RealmProvider = RealmProviderImpl()) {
         (savedSignal, savedObserver) = Signal<Bool, NSError>.pipe()
         (retrievedSignal, retrievedObserver) = Signal<Void, NSError>.pipe()
-        
+        self.realmProvider = realmProvider
         if let exName = exerciseName, exName != "new" {
             self.title = "Edit \(exName)"
             self.exerciseName.value = exName
         } else {
             self.title = "Add new exercise"
-            self.exerciseName.signal.observeValues({ name in
+            self.exerciseName.signal.observeValues({ [weak self] name in
+                guard let wSelf = self else { return }
                 do {
-                    let realm = try RealmProvider.realm()
+                    let realm = try wSelf.realmProvider.realm()
                     
                     try realm.write {
-                        self.exercise.name = name
+                        wSelf.exercise.name = name
                     }
                 } catch let error {
-                    self.savedObserver.send(value: false)
+                    wSelf.savedObserver.send(value: false)
                 }
             })
         }
-        exerciseReps.signal.observeValues({ reps in
-            
+        exerciseReps.signal.observeValues({ [weak self] reps in
+            guard let wSelf = self else { return }
             do {
-                let realm = try RealmProvider.realm()
+                let realm = try wSelf.realmProvider.realm()
                 
                 try realm.write {
-                    if let set = self.exercise.defaultSet {
+                    if let set = wSelf.exercise.defaultSet {
                         set.reps = reps
-                        self.exercise.defaultSet = set
+                        wSelf.exercise.defaultSet = set
                     } else {
                         let set = ExerciseSet()
                         set.reps = reps
-                        self.exercise.defaultSet = set
+                        wSelf.exercise.defaultSet = set
                     }
                 }
             } catch let error {
-                self.savedObserver.send(value: false)
+                wSelf.savedObserver.send(value: false)
             }
         })
-        exerciseWeight.signal.observeValues({ weight in
-            
+        exerciseWeight.signal.observeValues({ [weak self] weight in
+            guard let wSelf = self else { return }
             do {
-                let realm = try RealmProvider.realm()
+                let realm = try wSelf.realmProvider.realm()
                 
                 try realm.write {
-                    if let set = self.exercise.defaultSet {
+                    if let set = wSelf.exercise.defaultSet {
                         set.weight = weight
-                        self.exercise.defaultSet = set
+                        wSelf.exercise.defaultSet = set
                     } else {
                         let set = ExerciseSet()
                         set.weight = weight
-                        self.exercise.defaultSet = set
+                        wSelf.exercise.defaultSet = set
                     }
                 }
             } catch let error {
-                self.savedObserver.send(value: false)
+                wSelf.savedObserver.send(value: false)
             }
             
            
@@ -93,7 +95,7 @@ class AddExerciseViewModel {
     
     func save() {
         do {
-            let realm = try RealmProvider.realm()
+            let realm = try realmProvider.realm()
             
             try realm.write {
                 realm.add(exercise)
@@ -108,7 +110,7 @@ class AddExerciseViewModel {
     func fetchExercise() {
         guard !exerciseName.value.isEmpty else { return }
         do {
-            let realm = try RealmProvider.realm()
+            let realm = try realmProvider.realm()
             guard let e = realm.object(ofType: Exercise.self, forPrimaryKey: exerciseName.value) else {
                     return
             }
@@ -121,6 +123,7 @@ class AddExerciseViewModel {
             retrievedObserver.send(value: ())
             
         } catch let error {
+            retrievedObserver.send(error: error as NSError)
             print(error.localizedDescription)
         }
         

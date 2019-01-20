@@ -33,12 +33,13 @@ class RealmService: NSObject, UIApplicationDelegate {
             
             Realm.Configuration.defaultConfiguration = config
             
-            let realm = try RealmProvider.realm()
+            let realm = try RealmProviderImpl().realm()
                 
             let users = realm.objects(User.self)
             
             if let first = users.first {
-                let dashboardVC = DashboardViewController(userId: first.id)
+                let viewModel = DashboardViewModel(user: first)
+                let dashboardVC = DashboardViewController(viewModel: viewModel)
                 navC = UINavigationController(rootViewController: dashboardVC)
             } else {
                 let loginVC = LoginViewController()

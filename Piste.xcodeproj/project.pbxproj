@@ -58,6 +58,8 @@
 		4ABB539F1F0ADAEB00D1D878 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */; };
 		4ABB53A11F0ADB6000D1D878 /* ExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */; };
 		4ABB53A41F0AE38100D1D878 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB53A31F0AE38100D1D878 /* RealmService.swift */; };
+		4ABF08FF21F4FD7E00EBD1D3 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF08FE21F4FD7E00EBD1D3 /* Mock.generated.swift */; };
+		4ABF090121F51B8500EBD1D3 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF090021F51B8500EBD1D3 /* DashboardViewModel.swift */; };
 		4AFEE6B31F40874500A92BA6 /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFEE6B21F40874500A92BA6 /* WorkoutsViewController.swift */; };
 		9315D67556C06859BD8EAC3F /* Pods_Piste.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6C3AEAB280E23D0418DDBC /* Pods_Piste.framework */; };
 		C52821235C53E3D619AB0CDC /* Pods_PisteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC438168CF695A5F25D1FB9F /* Pods_PisteTests.framework */; };
@@ -139,6 +141,8 @@
 		4ABB539E1F0ADAEB00D1D878 /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		4ABB53A01F0ADB6000D1D878 /* ExerciseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewModel.swift; sourceTree = "<group>"; };
 		4ABB53A31F0AE38100D1D878 /* RealmService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		4ABF08FE21F4FD7E00EBD1D3 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
+		4ABF090021F51B8500EBD1D3 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		4AFEE6B21F40874500A92BA6 /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		55CDFBC2D4134E93E0FC9598 /* Pods-PisteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PisteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CB6BB237C65DF25FC0B014F /* Pods-Piste.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Piste.release.xcconfig"; path = "Pods/Target Support Files/Pods-Piste/Pods-Piste.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 			children = (
 				4ABB53961F09427000D1D878 /* DashboardViewController.swift */,
 				4AB5A598207A2F0300B4080B /* DashboardViewController.xib */,
+				4ABF090021F51B8500EBD1D3 /* DashboardViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 		4ABB53681F09316A00D1D878 /* PisteTests */ = {
 			isa = PBXGroup;
 			children = (
+				4ABF08FE21F4FD7E00EBD1D3 /* Mock.generated.swift */,
 				4ABB53691F09316A00D1D878 /* PisteTests.swift */,
 				4ABB536B1F09316A00D1D878 /* Info.plist */,
 				4AAE44271F54421E0083CB30 /* AddExerciseViewModelTests.swift */,
@@ -414,7 +420,6 @@
 				4ABB534E1F09316A00D1D878 /* Frameworks */,
 				4ABB534F1F09316A00D1D878 /* Resources */,
 				CC5A41907C112C2A109974BA /* [CP] Embed Pods Frameworks */,
-				6E9CB6EA99D0E8679EF961F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -433,8 +438,7 @@
 				4ABB53611F09316A00D1D878 /* Sources */,
 				4ABB53621F09316A00D1D878 /* Frameworks */,
 				4ABB53631F09316A00D1D878 /* Resources */,
-				9E0AD8D3D627E6CEE7B40832 /* [CP] Embed Pods Frameworks */,
-				EE354441F9FBC4EB827AB3E4 /* [CP] Copy Pods Resources */,
+				FD953DCB80418CFCB2A2E520 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -455,8 +459,6 @@
 				4ABB536C1F09316A00D1D878 /* Sources */,
 				4ABB536D1F09316A00D1D878 /* Frameworks */,
 				4ABB536E1F09316A00D1D878 /* Resources */,
-				B7B920E36B951E04FCA798A2 /* [CP] Embed Pods Frameworks */,
-				F9F60AA5020C5A7932BFBC54 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -599,51 +601,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		6E9CB6EA99D0E8679EF961F6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Piste/Pods-Piste-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9E0AD8D3D627E6CEE7B40832 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7B920E36B951E04FCA798A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PisteUITests/Pods-PisteUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C2CC24E591CE5574D9E74BAE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -708,34 +665,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE354441F9FBC4EB827AB3E4 /* [CP] Copy Pods Resources */ = {
+		FD953DCB80418CFCB2A2E520 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyMocky/SwiftyMocky.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMocky.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9F60AA5020C5A7932BFBC54 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PisteUITests/Pods-PisteUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PisteTests/Pods-PisteTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -767,6 +716,7 @@
 				4A8EC9741F2E6BDD0069508B /* AddExerciseViewModel.swift in Sources */,
 				4AB5A5A5207A355700B4080B /* UICollectionView+Extensions.swift in Sources */,
 				4ABB538B1F093B3900D1D878 /* WorkoutExercise.swift in Sources */,
+				4ABF090121F51B8500EBD1D3 /* DashboardViewModel.swift in Sources */,
 				4AAACEDD1F892974003178C6 /* UIImage+Assets.swift in Sources */,
 				4ABB53551F09316A00D1D878 /* AppDelegate.swift in Sources */,
 				4ABB53951F093F3E00D1D878 /* RouterService.swift in Sources */,
@@ -790,6 +740,7 @@
 			files = (
 				4AAE442C1F545A690083CB30 /* AddTemplateWorkoutViewModelTests.swift in Sources */,
 				4AAE44281F54421E0083CB30 /* AddExerciseViewModelTests.swift in Sources */,
+				4ABF08FF21F4FD7E00EBD1D3 /* Mock.generated.swift in Sources */,
 				4ABB536A1F09316A00D1D878 /* PisteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,7 +929,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55CDFBC2D4134E93E0FC9598 /* Pods-PisteTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = PisteTests/Info.plist;
@@ -995,7 +945,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 03426F64AF92AF9CB477B33F /* Pods-PisteTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = U69Y38AA58;
 				INFOPLIST_FILE = PisteTests/Info.plist;

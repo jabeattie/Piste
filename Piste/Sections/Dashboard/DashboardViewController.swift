@@ -10,11 +10,14 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
-    @IBOutlet weak var userIDLabel: UILabel!
-    private var userId: Int
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var workoutsButton: UIButton!
+    @IBOutlet weak var exercisesButton: UIButton!
+    private let viewModel: DashboardViewModel
     
-    init(userId: Int) {
-        self.userId = userId
+    init(viewModel: DashboardViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: String(describing: DashboardViewController.self), bundle: nil)
     }
     
@@ -24,14 +27,18 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        userIDLabel.text = "\(userId)"
+        setupUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private func setupUI() {
+        addGradientView()
+        welcomeLabel.text = viewModel.title
+        startButton.layer.cornerRadius = 30
+        workoutsButton.layer.cornerRadius = 25
+        exercisesButton.layer.cornerRadius = 25
+    }
+    
+    @IBAction func startTapped(_ sender: UIButton) {
     }
     
     @IBAction func exercisesTapped(_ sender: UIButton) {

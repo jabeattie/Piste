@@ -10,110 +10,120 @@ import XCTest
 import Result
 import ReactiveSwift
 import RealmSwift
+import Quick
+import Nimble
+import SwiftyMocky
 
 @testable import Piste
 
-class AddExerciseViewModelTests: XCTestCase {
+class AddExerciseViewModelTests: QuickSpec {
     
-    var viewModel: AddExerciseViewModel?
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        let realm = try! RealmProvider.realm()
-        try! realm.write {
-            realm.deleteAll()
-        }
-        
-        viewModel = AddExerciseViewModel(exerciseName: "new")
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExerciseName() {
-        
-        let exp = expectation(description: "Exercise created")
-        
-        viewModel?.exerciseName.value = "exerciseName"
-        viewModel?.exerciseReps.value = 10
-        viewModel?.exerciseWeight.value = 20.0
-        
-        viewModel?.savedSignal.observeResult({ (result) in
-            if result.value ?? false {
-                let realm = try! RealmProvider.realm()
-                let exercise = realm.objects(Exercise.self)
-                if !exercise.isEmpty {
-                    exp.fulfill()
+    override func spec() {
+        describe("AddExerciseViewModel") {
+            var viewModel: AddExerciseViewModel!
+            
+            beforeEach {
+                let realm = try? RealmProviderImpl().realm()
+                try? realm?.write {
+                    realm?.deleteAll()
+                }
+                
+                viewModel = AddExerciseViewModel(exerciseName: "new")
+            }
+            
+            describe("exerciseName") {
+                context("all other data present") {
+                    it("should save when set") {
+                        
+                        viewModel.exerciseReps.value = 10
+                        viewModel.exerciseWeight.value = 20.0
+                        viewModel.exerciseName.value = "exerciseName"
+                        
+                        waitUntil(action: { (done) in
+                            viewModel.savedSignal.observeResult({ (result) in
+                                let realm = try? RealmProviderImpl().realm()
+                                let exercise = realm?.object(ofType: Exercise.self, forPrimaryKey: "exerciseName")
+                                expect(exercise).toNot(beNil())
+                                expect(result.value).to(beTrue())
+                                done()
+                            })
+                            viewModel.save()
+                        })
+                    }
                 }
             }
-        })
-        
-        viewModel?.save()
-        
-        waitForExpectations(timeout: 10.0) { (error) in
-            if let e = error {
-                XCTFail(e.localizedDescription)
+            
+            describe("fetchExercise()") {
+                it("should send value on signal when loaded") {
+                    createAndAddExercise()
+                    viewModel = AddExerciseViewModel(exerciseName: "test1")
+                    
+                    waitUntil(action: { (done) in
+                        viewModel.retrievedSignal.observeResult({ (result) in
+                            switch result {
+                            case .success:
+                                expect(viewModel.exerciseName.value).to(equal("test1"))
+                                done()
+                            case.failure(let error):
+                                fail(error.localizedDescription)
+                            }
+                        })
+                        viewModel.fetchExercise()
+                    })
+                }
+                
+                it("should send error when realm fails loading") {
+                    let mock = RealmProviderMock()
+                    viewModel = AddExerciseViewModel(exerciseName: "test1", realmProvider: mock)
+                    Given(mock, .realm(willThrow: NSError(domain: "1", code: 1, userInfo: nil)))
+                    
+                    waitUntil(action: { (done) in
+                        viewModel.retrievedSignal.observeResult({ (result) in
+                            switch result {
+                            case .success:
+                                fail("Realm did not throw error")
+                            case.failure(let error):
+                                expect(error.code).to(equal(1))
+                                done()
+                            }
+                        })
+                        viewModel.fetchExercise()
+                    })
+                }
+            }
+            
+            func createAndAddExercise() {
+                let exercise = Exercise()
+                exercise.name = "test1"
+                let set = ExerciseSet()
+                set.reps = 1
+                set.weight = 2.0
+                exercise.defaultSet = set
+                let realm = try? RealmProviderImpl().realm()
+                try? realm?.write {
+                    realm?.add(exercise)
+                }
             }
         }
     }
     
-    func testFetchExercise() {
-        createAndAddExercise()
-        
-        viewModel = AddExerciseViewModel(exerciseName: "test1")
-        
-        let exp = expectation(description: "Exercise retrieved")
-        
-        viewModel?.retrievedSignal.observeResult({ (result) in
-            switch result {
-            case .success:
-                exp.fulfill()
-                let name = self.viewModel?.exerciseName.value
-                XCTAssertEqual(name, "test1")
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-        })
-        
-        viewModel?.fetchExercise()
-        
-        waitForExpectations(timeout: 10.0) { (error) in
-            if let e = error {
-                XCTFail(e.localizedDescription)
-            }
-        }
-    }
-    
-    func testEditableNameFalse() {
-        createAndAddExercise()
-        
-        viewModel = AddExerciseViewModel(exerciseName: "test1")
-        viewModel?.fetchExercise()
-        
-        let editable = viewModel?.editableName ?? true
-        XCTAssertFalse(editable)
-    }
-    
-    func testEditableNameTrue() {
-        
-        let editable = viewModel?.editableName ?? false
-        XCTAssertTrue(editable)
-    }
-    
-    private func createAndAddExercise() {
-        let exercise = Exercise()
-        exercise.name = "test1"
-        let set = ExerciseSet()
-        set.reps = 1
-        set.weight = 2.0
-        exercise.defaultSet = set
-        let realm = try! RealmProvider.realm()
-        try! realm.write {
-            realm.add(exercise)
-        }
-    }
+//
+//
+//
+//    func testEditableNameFalse() {
+//        createAndAddExercise()
+//
+//        viewModel = AddExerciseViewModel(exerciseName: "test1")
+//        viewModel?.fetchExercise()
+//
+//        let editable = viewModel?.editableName ?? true
+//        XCTAssertFalse(editable)
+//    }
+//
+//    func testEditableNameTrue() {
+//
+//        let editable = viewModel?.editableName ?? false
+//        XCTAssertTrue(editable)
+//    }
     
 }

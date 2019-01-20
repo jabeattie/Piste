@@ -15,7 +15,9 @@ target 'Piste' do
 
   target 'PisteTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod "SwiftyMocky"
+    pod 'Quick'
+    pod 'Nimble'
   end
 
   target 'PisteUITests' do

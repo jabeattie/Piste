@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Piste" customModuleProvider="target">
             <connections>
-                <outlet property="userIDLabel" destination="nPl-5s-fZq" id="o1B-6b-J9K"/>
+                <outlet property="exercisesButton" destination="hyV-B0-Kqt" id="nIf-s5-XwO"/>
+                <outlet property="startButton" destination="jEn-cW-sRS" id="r33-GG-ESK"/>
                 <outlet property="view" destination="iN0-l3-epB" id="QfC-98-wb9"/>
+                <outlet property="welcomeLabel" destination="V71-Jv-fBt" id="70V-Ky-lMu"/>
+                <outlet property="workoutsButton" destination="1P1-1s-tbg" id="3N1-he-PRQ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,45 +24,89 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuT-LF-jSZ">
-                    <rect key="frame" x="145" y="323" width="84" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startWorkout" translatesAutoresizingMaskIntoConstraints="NO" id="86b-TL-6tI">
+                    <rect key="frame" x="58.5" y="100" width="258" height="258"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="258" id="5W0-D3-Ugq"/>
+                        <constraint firstAttribute="width" constant="258" id="V8l-3b-lhY"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3Fc-Tf-CVE">
+                    <rect key="frame" x="80" y="402" width="215" height="205"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-cW-sRS">
+                            <rect key="frame" x="0.0" y="0.0" width="215" height="60"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="FHB-6c-jdc"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                            <color key="tintColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="Start a workout">
+                                <color key="titleColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="startTapped:" destination="-1" eventType="touchUpInside" id="r8b-rx-TQe"/>
+                            </connections>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="m3i-tB-qhe">
+                            <rect key="frame" x="0.0" y="90" width="215" height="115"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1P1-1s-tbg">
+                                    <rect key="frame" x="0.0" y="0.0" width="215" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="fhJ-kf-BeU"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                                    <color key="tintColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Create workout">
+                                        <color key="titleColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="workoutsTapped:" destination="-1" eventType="touchUpInside" id="Xuo-02-YEP"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyV-B0-Kqt">
+                                    <rect key="frame" x="0.0" y="65" width="215" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="xvs-Zd-AXl"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                                    <color key="tintColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <state key="normal" title="Create exercises">
+                                        <color key="titleColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="exercisesTapped:" destination="-1" eventType="touchUpInside" id="CwM-e1-kUq"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V71-Jv-fBt">
+                    <rect key="frame" x="145.5" y="50" width="84.5" height="27.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycO-4P-adh">
-                    <rect key="frame" x="154" y="579" width="66" height="30"/>
-                    <state key="normal" title="Workouts"/>
-                    <connections>
-                        <action selector="workoutsTapped:" destination="-1" eventType="touchUpInside" id="9XB-q1-2qm"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPl-5s-fZq">
-                    <rect key="frame" x="166" y="352" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Oq-s5-gJL">
-                    <rect key="frame" x="155" y="617" width="65" height="30"/>
-                    <state key="normal" title="Exercises"/>
-                    <connections>
-                        <action selector="exercisesTapped:" destination="-1" eventType="touchUpInside" id="gkr-i0-lSj"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.98431372549999996" green="0.20000000000000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="VuT-LF-jSZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7Og-9l-T7v"/>
-                <constraint firstItem="0Oq-s5-gJL" firstAttribute="top" secondItem="ycO-4P-adh" secondAttribute="bottom" constant="8" id="Avh-lW-OHA"/>
-                <constraint firstItem="ycO-4P-adh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GgL-44-5Wu"/>
-                <constraint firstItem="VuT-LF-jSZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Mjh-ZR-fYv"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0Oq-s5-gJL" secondAttribute="bottom" constant="20" id="W0W-Ie-mKd"/>
-                <constraint firstItem="nPl-5s-fZq" firstAttribute="top" secondItem="VuT-LF-jSZ" secondAttribute="bottom" constant="8" id="a2s-7b-aA3"/>
-                <constraint firstItem="0Oq-s5-gJL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="w9p-Os-5gO"/>
-                <constraint firstItem="nPl-5s-fZq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="x4G-nR-gii"/>
+                <constraint firstItem="V71-Jv-fBt" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="Iaa-IQ-Smx"/>
+                <constraint firstItem="86b-TL-6tI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="XLV-7P-irP"/>
+                <constraint firstItem="V71-Jv-fBt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dbv-oX-YWl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3Fc-Tf-CVE" secondAttribute="bottom" constant="60" id="ioE-kB-L2V"/>
+                <constraint firstItem="86b-TL-6tI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="80" id="j0r-hy-yhN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3Fc-Tf-CVE" secondAttribute="trailing" constant="80" id="pDT-Fo-pUR"/>
+                <constraint firstItem="3Fc-Tf-CVE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="80" id="yxA-W3-YJr"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
     </objects>
+    <resources>
+        <image name="startWorkout" width="258" height="258"/>
+    </resources>
 </document>

@@ -15,8 +15,9 @@ class AddTemplateWorkoutViewModel {
     var savedSignal: Signal<Bool, NSError>
     var exercisesUpdatedSignal: Signal<Void, NSError>
     
-    private var savedObserver: Signal<Bool, NSError>.Observer
-    private var exercisesUpdatedObserver: Signal<Void, NSError>.Observer
+    private let savedObserver: Signal<Bool, NSError>.Observer
+    private let exercisesUpdatedObserver: Signal<Void, NSError>.Observer
+    private let realmProvider: RealmProvider
     
     var buttonTitle: String
     var name = MutableProperty<String>("")
@@ -24,12 +25,12 @@ class AddTemplateWorkoutViewModel {
     var templateId: Int
     let template: TemplateWorkout
     
-    init(templateId id: Int?) {
+    init(templateId id: Int?, realmProvider: RealmProvider = RealmProviderImpl()) {
         buttonTitle = id == nil ? "Create" : "Save"
         (exercisesUpdatedSignal, exercisesUpdatedObserver) = Signal<Void, NSError>.pipe()
         (savedSignal, savedObserver) = Signal<Bool, NSError>.pipe()
-        
-        let realm = try? RealmProvider.realm()
+        self.realmProvider = realmProvider
+        let realm = try? realmProvider.realm()
         
         if let id = id, id >= 0, let t = realm?.object(ofType: TemplateWorkout.self, forPrimaryKey: id) {
             templateId = id
@@ -45,10 +46,11 @@ class AddTemplateWorkoutViewModel {
             template.id = templateId
         }
         
-        name.signal.observeValues { (name) in
-            let realm = try? RealmProvider.realm()
+        name.signal.observeValues { [weak self] (name) in
+            guard let wSelf = self else { return }
+            let realm = try? wSelf.realmProvider.realm()
             try? realm?.write {
-                self.template.name = name
+                wSelf.template.name = name
             }
         }
     }
@@ -58,6 +60,7 @@ class AddTemplateWorkoutViewModel {
     }
     
     func cellViewModel(at index: Int) -> ExerciseCellViewModel? {
+        guard index < template.exercises.count else { return nil }
         return ExerciseCellViewModel(exercise: template.exercises[index], type: .light)
     }
     
@@ -65,7 +68,7 @@ class AddTemplateWorkoutViewModel {
         
         guard !name.isEmpty else { return }
         do {
-            let realm = try RealmProvider.realm()
+            let realm = try realmProvider.realm()
             guard let exercise = realm.object(ofType: Exercise.self, forPrimaryKey: name) else {
                 return
             }
@@ -82,7 +85,7 @@ class AddTemplateWorkoutViewModel {
     func save() {
         guard !template.name.isEmpty else { return }
         do {
-            let realm = try RealmProvider.realm()
+            let realm = try realmProvider.realm()
             
             try realm.write {
                 realm.add(template)
@@ -90,6 +93,7 @@ class AddTemplateWorkoutViewModel {
             savedObserver.send(value: true)
             
         } catch let error {
+            print(error.localizedDescription)
             savedObserver.send(value: false)
         }
     }

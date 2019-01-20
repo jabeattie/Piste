@@ -39,11 +39,13 @@ class ExerciseViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.tintColor = UIColor.pisteRed
         navigationController?.navigationBar.barStyle = .default
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         collectionView.reloadData()
     }
     
@@ -62,7 +64,6 @@ class ExerciseViewController: UIViewController {
             switch result {
             case .success:
                 self?.collectionView.reloadData()
-                break
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -120,7 +121,6 @@ extension ExerciseViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width, height: 76)
     }
-    
     
 //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        return true

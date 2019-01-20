@@ -9,8 +9,13 @@
 import Foundation
 import RealmSwift
 
-class RealmProvider {
-    class func realm() throws -> Realm {
+//sourcery: AutoMockable
+protocol RealmProvider {
+    func realm() throws -> Realm
+}
+
+class RealmProviderImpl: RealmProvider {
+    func realm() throws -> Realm {
         if let _ = NSClassFromString("XCTest") {
             return try
                 Realm(configuration: Realm.Configuration(
